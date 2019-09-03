@@ -1,0 +1,13 @@
+<form #quizForm="ngForm" (ngSubmit)="calculateScore()">
+  <h1>Enter your name to play!</h1>
+  <input type="text" placeholder="Enter Your Name" name="username" ngModel />
+  <div *ngFor="let question of questions">
+    <p>{{ question.question_name }}</p>
+    <p>{{ question.choice_1 }}</p>
+    <p>{{ question.choice_2 }}</p>
+    <p>{{ question.choice_3 }}</p>
+    <p>{{ question.choice_4 }}</p>
+    <input type="text" placeholder="Enter an answer" name="answer" ngModel />
+  </div>
+  <button>Submit</button>
+</form>
