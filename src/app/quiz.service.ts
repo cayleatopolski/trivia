@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root"
@@ -9,7 +10,7 @@ export class QuizService {
   playerAnswers: any;
   quizQuestions: any;
   correct = 0;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
   // private router: Router
 
   getQuestions(): Observable<any> {
@@ -37,15 +38,15 @@ export class QuizService {
     this.addScore(form.name, this.correct).subscribe();
   }
 
-  // navigateToResults() {
-  //   this.appRoutes.navigate(["results"]);
-  // }
+  navigateToResults() {
+    this.router.navigate(["results"]);
+  }
 
-  // navigateToQuiz() {
-  //   this.router.navigate(["quiz"]);
-  // }
+  navigateToQuiz() {
+    this.router.navigate(["quiz"]);
+  }
 
-  // navigateToScores() {
-  //   this.router.navigate(["scores"]);
-  // }
+  navigateToScores() {
+    this.router.navigate(["scores"]);
+  }
 }
